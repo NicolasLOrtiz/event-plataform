@@ -1,15 +1,15 @@
-import { useState } from 'react'
+import React from "react";
+import { ApolloProvider } from "@apollo/client";
+import { BrowserRouter } from "react-router-dom";
+import { Router } from "./Router";
+import { client } from "./lib";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => (
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  </ApolloProvider>
+);
 
-  return (
-    <div>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </div>
-  )
-}
-
-export default App
+export default App;
